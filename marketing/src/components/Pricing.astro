@@ -1,0 +1,129 @@
+---
+import { Check } from "lucide-react";
+
+const plans = [
+  {
+    name: "Campus Flex",
+    tagline: "For students who want to stand out",
+    price: "$0",
+    period: "/forever",
+    description: "The essentials to flex on campus and share your vibe.",
+    features: [
+      "Tea Box (anonymous messages)",
+      "Story Mode Bio generator",
+      "WhatsApp QR generator",
+      "5 AI QR generations",
+      "Sticker Sheet PDF (A4)",
+      "Standard resolution PNG",
+    ],
+    cta: "Start Flexing — Free",
+    href: "#waitlist",
+    popular: false,
+  },
+  {
+    name: "Career Pro",
+    tagline: "For job seekers who want to get hired",
+    price: "$9",
+    period: "/month",
+    description: "Know when recruiters scan. Stand out in the pile.",
+    features: [
+      "Everything in Campus Flex",
+      "🔥 Recruiter Radar (scan alerts)",
+      "🔥 LinkedIn Deep-Link",
+      "Smart Links with analytics",
+      "Unlimited QR generations",
+      "High-res PNG, SVG, PDF",
+      "Priority processing",
+    ],
+    cta: "Boost My Career",
+    href: "#waitlist",
+    popular: true,
+  },
+  {
+    name: "Lifetime Creator",
+    tagline: "For creators & brands who ship",
+    price: "$49",
+    period: "one-time",
+    description: "All features, forever. Perfect for content creators and small brands.",
+    features: [
+      "Everything in Career Pro",
+      "🔥 Batch Mode (5 QRs at once)",
+      "16 QR Templates library",
+      "Lifetime access (pay once)",
+      "Future feature updates",
+      "Commercial license",
+    ],
+    cta: "Claim Lifetime Deal",
+    href: "#waitlist",
+    popular: false,
+    badge: "🔥 Only 243 left",
+  },
+];
+---
+
+<section class="py-16 md:py-24 border-b-3 border-foreground" id="pricing">
+  <div class="container mx-auto px-4">
+    <div class="mb-12 text-center">
+      <span class="inline-block px-4 py-2 bg-accent text-accent-foreground font-bold text-sm uppercase tracking-wide mb-4">
+        💰 Pricing
+      </span>
+      <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">
+        Free for Students. Powerful for Pros.
+      </h2>
+      <p class="text-lg text-muted-foreground max-w-xl mx-auto">
+        Start free, upgrade when you get that interview call.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      {plans.map((plan) => (
+        <div class={`brutalist-card p-8 flex flex-col relative ${plan.popular ? 'border-primary' : ''}`}>
+          {plan.popular && (
+            <span class="absolute -top-3 left-4 px-3 py-1 bg-primary text-primary-foreground text-xs font-bold uppercase">
+              Recommended
+            </span>
+          )}
+          {plan.badge && (
+            <span class="absolute -top-3 left-4 px-3 py-1 bg-accent text-accent-foreground text-xs font-bold uppercase">
+              {plan.badge}
+            </span>
+          )}
+          
+          <div class="mb-4">
+            <h3 class="font-display font-bold text-xl mb-1">{plan.name}</h3>
+            <p class="text-xs text-primary font-medium uppercase tracking-wide">{plan.tagline}</p>
+          </div>
+          
+          <div class="mb-4">
+            <span class="font-display text-4xl font-bold">{plan.price}</span>
+            <span class="text-muted-foreground ml-1">{plan.period}</span>
+          </div>
+          
+          <p class="text-sm text-muted-foreground mb-6">{plan.description}</p>
+          
+          <ul class="space-y-3 mb-8 flex-1">
+            {plan.features.map((feature) => (
+              <li class="flex items-start gap-3">
+                <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                <span class="text-sm">{feature}</span>
+              </li>
+            ))}
+          </ul>
+          
+          <a 
+            href={plan.href} 
+            class={plan.popular ? 'brutalist-btn text-center' : 'brutalist-btn-outline text-center'}
+          >
+            {plan.cta}
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-12 text-center">
+      <p class="text-muted-foreground text-sm">
+        🇮🇳 <strong>Indian students:</strong> Special ₹199 career pack available at checkout (UPI accepted)
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,181 @@
+---
+import QrCarousel from "./QrCarousel";
+---
+
+<section class="relative pt-24 pb-16 md:pb-24 border-b-3 border-foreground min-h-screen flex flex-col justify-center bg-noise">
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="grid md:grid-cols-12 gap-8 items-center">
+      <!-- Left Content -->
+      <div class="md:col-span-7 space-y-6">
+        <div class="reveal-up reveal-up-1">
+          <span class="inline-block px-4 py-2 bg-accent text-accent-foreground font-bold text-sm uppercase tracking-wide">
+            🔥 500+ QRs Generated This Week
+          </span>
+        </div>
+        
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[0.95] reveal-up reveal-up-2">
+          Your Career Deserves{" "}
+          <span class="relative inline-block">
+            <span class="relative z-10">Better Than Boring</span>
+            <span class="absolute bottom-2 left-0 w-full h-4 bg-primary -z-0 -rotate-1"></span>
+          </span>
+        </h1>
+        
+        <p class="text-lg md:text-xl text-muted-foreground max-w-lg reveal-up reveal-up-3">
+          Turn your resume, portfolio, or Instagram into scannable art. 
+          <span class="font-bold text-foreground">Get noticed. Get hired. Get famous.</span>
+        </p>
+
+        <!-- Persona Pills -->
+        <div class="flex flex-wrap gap-3 reveal-up reveal-up-4">
+          <span class="px-3 py-1 border-3 border-foreground text-sm font-bold">👨‍🎓 Students</span>
+          <span class="px-3 py-1 border-3 border-foreground text-sm font-bold">💼 Job Seekers</span>
+          <span class="px-3 py-1 border-3 border-foreground text-sm font-bold">🎨 Creators</span>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-4 reveal-up reveal-up-5">
+          <a href="#waitlist" class="brutalist-btn inline-flex items-center justify-center gap-2 text-center">
+            Start Free — No Credit Card →
+          </a>
+          <a href="#use-cases" class="brutalist-btn-outline inline-flex items-center justify-center text-center">
+            See Use Cases
+          </a>
+        </div>
+        
+        <!-- Trust indicators -->
+        <div class="pt-8 reveal-up reveal-up-5">
+          <div class="flex flex-wrap items-center gap-6 text-sm">
+            <span class="flex items-center gap-2">
+              <span class="w-2 h-2 bg-accent"></span>
+              100% Scannable
+            </span>
+            <span class="flex items-center gap-2">
+              <span class="w-2 h-2 bg-accent"></span>
+              15+ Art Styles
+            </span>
+            <span class="flex items-center gap-2">
+              <span class="w-2 h-2 bg-accent"></span>
+              PNG, SVG, PDF
+            </span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right Visual -->
+      <div class="md:col-span-5 reveal-up reveal-up-3">
+        <div class="brutalist-card p-4 rotate-2 hover:rotate-0 transition-transform">
+          <div class="aspect-square bg-muted flex items-center justify-center">
+            <div class="text-center p-8">
+              <div class="w-16 h-16 mx-auto mb-4 bg-primary flex items-center justify-center">
+                <span class="text-primary-foreground font-bold text-2xl">QR</span>
+              </div>
+              <p class="font-display text-xl font-bold">Your Art Here</p>
+              <p class="text-sm text-muted-foreground">8 AI styles to choose from</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative w-full mt-16">
+    <QrCarousel client:load />
+  </div>
+</section>
+
+<!-- Persona Use Cases Section -->
+<section id="use-cases" class="py-16 md:py-24 border-b-3 border-foreground">
+  <div class="container mx-auto px-4">
+    <div class="mb-12">
+      <span class="inline-block px-4 py-2 bg-primary text-primary-foreground font-bold text-sm uppercase tracking-wide mb-4">
+        🎯 Built For You
+      </span>
+      <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">
+        One Tool. Three Power Moves.
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Student Persona -->
+      <div class="brutalist-card p-8">
+        <div class="text-4xl mb-4">👨‍🎓</div>
+        <h3 class="font-display font-bold text-2xl mb-2">College Students</h3>
+        <p class="text-muted-foreground mb-6">
+          Stand out on campus. Get anonymous messages. Flex harder.
+        </p>
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-center gap-2">
+            <span class="w-1 h-1 bg-primary"></span>
+            <span><strong>Tea Box:</strong> Anonymous confessions</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="w-1 h-1 bg-primary"></span>
+            <span><strong>Story Bio:</strong> "Link in bio" upgrade</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="w-1 h-1 bg-primary"></span>
+            <span><strong>WhatsApp QR:</strong> Share your number easily</span>
+          </li>
+        </ul>
+        <a href="#pricing" class="brutalist-btn-outline block text-center mt-6 text-sm">
+          Start Free
+        </a>
+      </div>
+
+      <!-- Job Seeker Persona -->
+      <div class="brutalist-card p-8 border-primary">
+        <div class="absolute -top-3 left-4 px-3 py-1 bg-primary text-primary-foreground text-xs font-bold uppercase">
+          Most Popular
+        </div>
+        <div class="text-4xl mb-4">💼</div>
+        <h3 class="font-display font-bold text-2xl mb-2">Job Seekers</h3>
+        <p class="text-muted-foreground mb-6">
+          Know the second someone scans your resume. Stand out in the pile.
+        </p>
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-center gap-2">
+            <span class="w-1 h-1 bg-primary"></span>
+            <span><strong>Recruiter Radar:</strong> Scan alerts to your email</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="w-1 h-1 bg-primary"></span>
+            <span><strong>LinkedIn Deep-Link:</strong> Opens app, not browser</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="w-1 h-1 bg-primary"></span>
+            <span><strong>Smart Links:</strong> Track every click</span>
+          </li>
+        </ul>
+        <a href="#pricing" class="brutalist-btn block text-center mt-6 text-sm">
+          Boost My Career
+        </a>
+      </div>
+
+      <!-- Creator Persona -->
+      <div class="brutalist-card p-8">
+        <div class="text-4xl mb-4">🎨</div>
+        <h3 class="font-display font-bold text-2xl mb-2">Creators & Brands</h3>
+        <p class="text-muted-foreground mb-6">
+          QRs that match your aesthetic. Perfect for merch, packaging, events.
+        </p>
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-center gap-2">
+            <span class="w-1 h-1 bg-primary"></span>
+            <span><strong>8 AI Styles:</strong> Cyberpunk to Luxury Gold</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="w-1 h-1 bg-primary"></span>
+            <span><strong>Batch Mode:</strong> 5 QRs at once (Pro)</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="w-1 h-1 bg-primary"></span>
+            <span><strong>Sticker Sheets:</strong> Print-ready A4 PDF</span>
+          </li>
+        </ul>
+        <a href="#pricing" class="brutalist-btn-outline block text-center mt-6 text-sm">
+          Create Art
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

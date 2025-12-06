@@ -1,0 +1,60 @@
+---
+import { Twitter, Instagram, Linkedin } from 'lucide-react';
+---
+
+<footer class="border-t-3 border-foreground py-16">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+      <div class="col-span-1 md:col-span-2">
+        <a href="/" class="flex items-center gap-2 mb-6" aria-label="QRaft.ai Home">
+          <div class="w-8 h-8 bg-primary flex items-center justify-center">
+            <span class="text-primary-foreground font-bold">Q</span>
+          </div>
+          <span class="font-display font-bold text-lg">QRaft.ai</span>
+        </a>
+        <p class="text-muted-foreground max-w-sm mb-6">
+          Turn boring black-and-white QR codes into stunning, brand-aligned art pieces using the power of generative AI.
+        </p>
+        <div class="flex gap-4">
+          <a href="https://twitter.com/qraftai" aria-label="Twitter" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border-3 border-foreground flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors">
+            <Twitter className="w-5 h-5" />
+          </a>
+          <a href="https://instagram.com/qraftai" aria-label="Instagram" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border-3 border-foreground flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors">
+            <Instagram className="w-5 h-5" />
+          </a>
+          <a href="https://linkedin.com/company/qraftai" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border-3 border-foreground flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors">
+            <Linkedin className="w-5 h-5" />
+          </a>
+        </div>
+      </div>
+      
+      <div>
+        <h4 class="font-display font-bold mb-6 uppercase text-sm tracking-wide">Product</h4>
+        <ul class="space-y-4">
+          <li><a href="#features" class="brutalist-link text-muted-foreground hover:text-foreground transition-colors">Features</a></li>
+          <li><a href="#gallery" class="brutalist-link text-muted-foreground hover:text-foreground transition-colors">Gallery</a></li>
+          <li><a href="#pricing" class="brutalist-link text-muted-foreground hover:text-foreground transition-colors">Pricing</a></li>
+          <li><a href="#faq" class="brutalist-link text-muted-foreground hover:text-foreground transition-colors">FAQ</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h4 class="font-display font-bold mb-6 uppercase text-sm tracking-wide">Get Started</h4>
+        <ul class="space-y-4">
+          <li><a href="#waitlist" class="brutalist-link text-muted-foreground hover:text-foreground transition-colors">Join Waitlist</a></li>
+          <li><a href="#testimonials" class="brutalist-link text-muted-foreground hover:text-foreground transition-colors">Testimonials</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="border-t-3 border-foreground pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-sm text-muted-foreground">
+        &copy; {new Date().getFullYear()} QRaft AI. All rights reserved.
+      </p>
+      <div class="flex gap-6 text-sm text-muted-foreground">
+        <span class="cursor-default">Privacy Policy</span>
+        <span class="cursor-default">Terms of Service</span>
+      </div>
+    </div>
+  </div>
+</footer>

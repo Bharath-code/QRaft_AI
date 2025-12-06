@@ -1,0 +1,24 @@
+---
+import Welcome from '../components/Welcome.astro';
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Features from '../components/Features';
+import Gallery from '../components/Gallery.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Pricing from '../components/Pricing.astro';
+import FAQ from '../components/FAQ.astro';
+import Waitlist from '../components/Waitlist.astro';
+import QrCarousel from '../components/QrCarousel';
+---
+
+<Layout title="AI QR Code Generator - Create Artistic QR Codes | QRaft.ai" description="Transform boring QR codes into stunning AI-generated art. 100% scannable, 15+ styles, perfect for brands, creators, and businesses. Try free!">
+	<main>
+		<Hero />
+    <Features client:visible />
+    <Gallery />
+    <Testimonials />
+    <Pricing />
+    <FAQ />
+    <Waitlist />
+	</main>
+</Layout>

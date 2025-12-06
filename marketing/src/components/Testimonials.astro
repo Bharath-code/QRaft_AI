@@ -1,0 +1,92 @@
+---
+const testimonials = [
+  {
+    quote: "QRaft.ai turned our boring product QR codes into conversation starters. Customers actually compliment our packaging now!",
+    author: "Sarah Chen",
+    role: "Marketing Director",
+    company: "Artisan Coffee Co",
+    avatar: "SC",
+  },
+  {
+    quote: "As a freelancer, I use QRaft for my business cards and portfolio links. The cyberpunk style perfectly matches my brand aesthetic.",
+    author: "Marcus Rodriguez",
+    role: "UX Designer",
+    company: "Freelance",
+    avatar: "MR",
+  },
+  {
+    quote: "We replaced all our event QR codes with QRaft-generated ones. Scan rates went up 35% at our last conference booth.",
+    author: "Emily Watson",
+    role: "Events Manager",
+    company: "TechConf Global",
+    avatar: "EW",
+  },
+  {
+    quote: "My students love creating unique QR codes for their projects. It's become a fun way to share digital portfolios.",
+    author: "Prof. James Liu",
+    role: "Design Professor",
+    company: "UCLA",
+    avatar: "JL",
+  },
+  {
+    quote: "The lifetime deal was a no-brainer. We've already created 200+ branded QR codes for our restaurant chain.",
+    author: "David Kim",
+    role: "Operations Head",
+    company: "K-BBQ Holdings",
+    avatar: "DK",
+  },
+  {
+    quote: "Finally, QR codes that don't look like a printer error! Our real estate listings look so much more professional now.",
+    author: "Amanda Foster",
+    role: "Real Estate Agent",
+    company: "Compass",
+    avatar: "AF",
+  },
+];
+---
+
+<section class="py-24 bg-secondary/20" id="testimonials">
+  <div class="container mx-auto px-4">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent bg-primary/10 text-primary mb-4">
+        ⭐ Testimonials
+      </div>
+      <h2 class="text-3xl md:text-5xl font-bold mb-6 tracking-tight">Loved by Creators & Brands</h2>
+      <p class="text-lg text-muted-foreground">
+        Join thousands of professionals who've transformed their QR codes.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      {testimonials.map((testimonial, index) => (
+        <div 
+          class="relative p-6 rounded-2xl bg-background/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all hover:shadow-lg"
+          style={`animation-delay: ${index * 100}ms`}
+        >
+          <!-- Stars -->
+          <div class="flex gap-1 mb-4">
+            {[1,2,3,4,5].map(() => (
+              <svg class="w-4 h-4 text-amber-400 fill-amber-400" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+            ))}
+          </div>
+          
+          <p class="text-muted-foreground mb-6 leading-relaxed">
+            "{testimonial.quote}"
+          </p>
+          
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-sm font-semibold text-primary">
+              {testimonial.avatar}
+            </div>
+            <div>
+              <p class="font-semibold text-sm">{testimonial.author}</p>
+              <p class="text-xs text-muted-foreground">{testimonial.role}, {testimonial.company}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

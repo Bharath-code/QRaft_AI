@@ -1,0 +1,114 @@
+---
+const faqs = [
+  {
+    question: "Will my AI QR codes actually scan?",
+    answer: "100%. We use High Error Correction (Level H) on every generation. This means 30% of the QR can be art and it still scans perfectly. We test each code before you download."
+  },
+  {
+    question: "What is Recruiter Radar?",
+    answer: "It's your career stalker mode. When someone scans your resume QR, you get an instant email with the city (e.g., 'Bangalore'), device (iPhone 15), and exact time. Know the second your resume gets attention."
+  },
+  {
+    question: "How does the Tea Box work?",
+    answer: "Share your unique QR on Instagram. Friends and crushes scan it to send you anonymous messages. You see the message in your dashboard and can reply publicly on your story. Campus drama unlocked."
+  },
+  {
+    question: "What's LinkedIn Deep-Link?",
+    answer: "Normally, scanning a LinkedIn QR opens the browser and asks for login. Our deep-link opens the LinkedIn app directly so people can connect in 2 taps. 3x more connections, proven by our users."
+  },
+  {
+    question: "How do I print stickers?",
+    answer: "Download the Sticker Sheet PDF (A4 with 3x3 grid). Take it to any Xerox shop and ask for 'Glossy Sticker Paper'. Usually costs ₹10-20. Cut and stick anywhere."
+  },
+  {
+    question: "Can I change where my QR points to?",
+    answer: "Yes, on Pro plans. We call these 'Smart Links'. Print a QR on your business card, then change the destination URL anytime from your dashboard. Never reprint again."
+  },
+  {
+    question: "Is it really free for students?",
+    answer: "Yep. Tea Box, Story Bio, WhatsApp QR, and 5 AI generations are free. Recruiter Radar and unlimited generations need Pro (₹199 career pack for Indian students)."
+  },
+  {
+    question: "What art styles are available?",
+    answer: "8 unique AI styles: Cyberpunk, Neon City, Luxury Gold, Nature, Watercolor, Japanese Ink, Geometric, and Minimalist. Each creates a completely different aesthetic."
+  },
+];
+---
+
+<section class="py-16 md:py-24 border-b-3 border-foreground" id="faq">
+  <div class="container mx-auto px-4">
+    <div class="mb-12">
+      <span class="inline-block px-4 py-2 bg-accent text-accent-foreground font-bold text-sm uppercase tracking-wide mb-4">
+        ❓ FAQ
+      </span>
+      <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">
+        Questions? Answered.
+      </h2>
+      <p class="text-lg text-muted-foreground">
+        Everything you need to know before you start.
+      </p>
+    </div>
+
+    <div class="max-w-3xl space-y-4">
+      {faqs.map((faq, index) => (
+        <div class="brutalist-card p-0 faq-item" data-index={index}>
+          <button 
+            class="flex w-full items-center justify-between text-left gap-4 p-6"
+            aria-expanded="false"
+          >
+            <h3 class="font-display font-bold text-lg">
+              {faq.question}
+            </h3>
+            <svg 
+              class="w-5 h-5 shrink-0 text-muted-foreground transition-transform duration-200 faq-chevron" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-answer overflow-hidden max-h-0 transition-all duration-300">
+            <p class="px-6 pb-6 text-muted-foreground">
+              {faq.answer}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.faq-item button').forEach(button => {
+    button.addEventListener('click', () => {
+      const item = button.closest('.faq-item');
+      const answer = item?.querySelector('.faq-answer') as HTMLElement;
+      const chevron = item?.querySelector('.faq-chevron');
+      const isOpen = button.getAttribute('aria-expanded') === 'true';
+      
+      // Close all other items
+      document.querySelectorAll('.faq-item').forEach(otherItem => {
+        if (otherItem !== item) {
+          const otherAnswer = otherItem.querySelector('.faq-answer') as HTMLElement;
+          const otherChevron = otherItem.querySelector('.faq-chevron');
+          const otherButton = otherItem.querySelector('button');
+          if (otherAnswer) otherAnswer.style.maxHeight = '0';
+          otherChevron?.classList.remove('rotate-180');
+          otherButton?.setAttribute('aria-expanded', 'false');
+        }
+      });
+      
+      // Toggle current item
+      if (!isOpen) {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        chevron?.classList.add('rotate-180');
+        button.setAttribute('aria-expanded', 'true');
+      } else {
+        answer.style.maxHeight = '0';
+        chevron?.classList.remove('rotate-180');
+        button.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+</script>
