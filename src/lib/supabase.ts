@@ -1,8 +1,15 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+let supabaseAdmin: SupabaseClient | null = null;
 
-// Client for API routes (Server-side admin)
-// Using supabase-js directly is fine with Service Key
-export const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey);
+export function getSupabaseAdmin(): SupabaseClient {
+    if (!supabaseAdmin) {
+        const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+        const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+        supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey);
+    }
+    return supabaseAdmin;
+}
+
+// For backward compatibility
+export { supabaseAdmin };

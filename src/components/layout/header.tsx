@@ -7,9 +7,6 @@ import { Menu, X } from "lucide-react";
 const navItems = [
     { href: "/", label: "Home" },
     { href: "/#generator", label: "Create" },
-    { href: "/templates", label: "Templates" },
-    { href: "/#pricing", label: "Pricing" },
-    { href: "/dashboard", label: "Dashboard" },
 ];
 
 export function Header() {
@@ -21,11 +18,11 @@ export function Header() {
                 <div className="container mx-auto px-4">
                     <div className="flex items-center justify-between h-16">
                         {/* Logo */}
-                        <Link href="/" className="flex items-center gap-2 font-display font-bold text-xl">
-                            <div className="w-8 h-8 bg-primary flex items-center justify-center">
-                                <span className="text-primary-foreground font-bold">Q</span>
+                        <Link href="/" className="flex items-center gap-3 group">
+                            <div className="w-10 h-10 bg-primary border-3 border-foreground shadow-[2px_2px_0_0_black] flex items-center justify-center group-hover:translate-x-[2px] group-hover:translate-y-[2px] group-hover:shadow-none transition-all">
+                                <span className="text-primary-foreground font-black font-display text-xl">Q</span>
                             </div>
-                            <span>QRaft</span>
+                            <span className="font-display font-black text-2xl tracking-tighter uppercase">QRaft</span>
                         </Link>
 
                         {/* Desktop Nav */}

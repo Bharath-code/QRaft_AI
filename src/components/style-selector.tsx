@@ -17,58 +17,72 @@ export const STYLES: QRStyle[] = [
     {
         id: "cyberpunk",
         name: "Cyberpunk Neon",
-        description: "Neon glow, holographic grid, rain droplets",
+        description: "Holographic glow, futuristic city, digital rain",
         preview: "bg-gradient-to-br from-purple-900 to-pink-900",
-        color: "border-pink-500 shadow-pink-500/50",
+        color: "border-pink-500",
     },
     {
         id: "luxury",
         name: "Luxury Gold",
-        description: "Marble texture, 24k gold modules, premium",
+        description: "24k gold textures, marble, premium drippy",
         preview: "bg-gradient-to-br from-yellow-900 to-yellow-700",
-        color: "border-yellow-500 shadow-yellow-500/50",
+        color: "border-yellow-500",
     },
     {
         id: "sakura",
-        name: "Watercolor Sakura",
-        description: "Soft pink cherry blossoms, washi paper",
+        name: "Lo-fi Sakura",
+        description: "Soft pink aesthetic, anime vibe, ethereal",
         preview: "bg-gradient-to-br from-pink-200 to-red-200",
-        color: "border-pink-300 shadow-pink-300/50",
+        color: "border-pink-300",
     },
     {
         id: "vaporwave",
         name: "Vaporwave",
-        description: "Hot pink grid, palm trees, 80s aesthetic",
+        description: "80s retro, chrome, glitch, synthwave grid",
         preview: "bg-gradient-to-br from-cyan-500 to-purple-500",
-        color: "border-cyan-400 shadow-cyan-400/50",
+        color: "border-cyan-400",
     },
     {
         id: "banksy",
         name: "Street Art",
-        description: "Stencil style, brick wall, dripping paint",
+        description: "Stencil graffiti, urban wall, rebellious",
         preview: "bg-gradient-to-br from-gray-800 to-gray-900",
-        color: "border-red-600 shadow-red-600/50",
+        color: "border-red-600",
     },
     {
         id: "floral",
-        name: "Victorian Floral",
-        description: "Intricate vines, roses, antique parchment",
+        name: "Cottagecore",
+        description: "Vintage floral, roses, botanical aesthetic",
         preview: "bg-gradient-to-br from-amber-100 to-orange-100",
-        color: "border-amber-600 shadow-amber-600/50",
+        color: "border-amber-600",
     },
     {
         id: "isometric",
         name: "3D Isometric",
-        description: "Tiny buildings, floating island, pastel",
+        description: "Cozy tiny world, pastel, floating island",
         preview: "bg-gradient-to-br from-blue-200 to-indigo-300",
-        color: "border-indigo-400 shadow-indigo-400/50",
+        color: "border-indigo-400",
     },
     {
         id: "swiss",
         name: "Swiss Minimal",
-        description: "Bold geometry, negative space, bauhaus",
+        description: "Clean typography, bold geometry, poster art",
         preview: "bg-gradient-to-br from-white to-gray-200",
-        color: "border-red-500 shadow-red-500/50",
+        color: "border-red-500",
+    },
+    {
+        id: "abstract",
+        name: "Acid Liquid",
+        description: "Y2K aesthetic, trippy oil spill, vibrant",
+        preview: "bg-gradient-to-br from-indigo-500 to-purple-500",
+        color: "border-indigo-500",
+    },
+    {
+        id: "paper",
+        name: "Paper Craft",
+        description: "DIY origami, layered depth, handmade feel",
+        preview: "bg-gradient-to-br from-emerald-100 to-teal-100",
+        color: "border-emerald-500",
     },
 ];
 
@@ -88,10 +102,10 @@ export function StyleSelector({ selectedStyle, onSelect }: StyleSelectorProps) {
                 >
                     <Card
                         className={cn(
-                            "relative cursor-pointer overflow-hidden border-2 transition-all duration-300 h-40 group",
+                            "relative cursor-pointer overflow-hidden border-3 transition-all duration-150 h-40 group rounded-none",
                             selectedStyle === style.id
-                                ? `${style.color} bg-accent/5`
-                                : "border-transparent hover:border-white/20 bg-secondary/50"
+                                ? `${style.color} shadow-hard bg-accent/10`
+                                : "border-muted-foreground/20 hover:border-foreground/50 bg-secondary/50 hover:shadow-hard"
                         )}
                         onClick={() => onSelect(style.id)}
                     >
@@ -100,14 +114,14 @@ export function StyleSelector({ selectedStyle, onSelect }: StyleSelectorProps) {
 
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-4 flex flex-col justify-end">
                             <div className="flex items-center justify-between">
-                                <span className="font-semibold text-white text-sm">{style.name}</span>
+                                <span className="font-semibold text-white text-sm font-display uppercase tracking-wide">{style.name}</span>
                                 {selectedStyle === style.id && (
-                                    <div className="bg-primary rounded-full p-1">
+                                    <div className="bg-primary rounded-none p-1 border border-foreground shadow-[2px_2px_0_0_black]">
                                         <Check className="w-3 h-3 text-primary-foreground" />
                                     </div>
                                 )}
                             </div>
-                            <p className="text-[10px] text-gray-300 line-clamp-2 mt-1">
+                            <p className="text-[10px] text-gray-300 line-clamp-2 mt-1 font-mono">
                                 {style.description}
                             </p>
                         </div>

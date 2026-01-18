@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { supabaseAdmin } from "@/lib/supabase";
+import { getSupabaseAdmin } from "@/lib/supabase";
 
 export async function POST(req: Request) {
     try {
@@ -21,7 +21,7 @@ export async function POST(req: Request) {
 
         // Check user plan - batch generation is Pro only
         if (userId) {
-            const { data: user } = await supabaseAdmin
+            const { data: user } = await getSupabaseAdmin()
                 .from('users')
                 .select('plan')
                 .eq('id', userId)
@@ -40,7 +40,7 @@ export async function POST(req: Request) {
         }
 
         // Process URLs with concurrency limit (2 at a time to avoid rate limits)
-        const results = [];
+        const results: { url: string; success: boolean; image?: string; watermark?: boolean; error?: string }[] = [];
         const batchSize = 2;
 
         for (let i = 0; i < urls.length; i += batchSize) {

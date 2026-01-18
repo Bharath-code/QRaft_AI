@@ -61,14 +61,18 @@ const plans = [
 ];
 ---
 
-<section class="py-16 md:py-24 border-b-3 border-foreground" id="pricing">
-  <div class="container mx-auto px-4">
+<section class="py-16 md:py-24 bg-background bg-premium relative" id="pricing">
+  {/* Background gradient orb */}
+  <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[150px] pointer-events-none"></div>
+  
+  <div class="container mx-auto px-4 relative z-10">
     <div class="mb-12 text-center">
-      <span class="inline-block px-4 py-2 bg-accent text-accent-foreground font-bold text-sm uppercase tracking-wide mb-4">
+      <span class="inline-flex items-center gap-2 px-4 py-2 glass-card text-sm font-medium mb-4">
         💰 Pricing
       </span>
       <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">
-        Free for Students. Powerful for Pros.
+        Free for Students.{" "}
+        <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Powerful for Pros.</span>
       </h2>
       <p class="text-lg text-muted-foreground max-w-xl mx-auto">
         Start free, upgrade when you get that interview call.
@@ -77,45 +81,47 @@ const plans = [
 
     <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
       {plans.map((plan) => (
-        <div class={`brutalist-card p-8 flex flex-col relative ${plan.popular ? 'border-primary' : ''}`}>
-          {plan.popular && (
-            <span class="absolute -top-3 left-4 px-3 py-1 bg-primary text-primary-foreground text-xs font-bold uppercase">
-              Recommended
-            </span>
-          )}
-          {plan.badge && (
-            <span class="absolute -top-3 left-4 px-3 py-1 bg-accent text-accent-foreground text-xs font-bold uppercase">
-              {plan.badge}
-            </span>
-          )}
-          
-          <div class="mb-4">
-            <h3 class="font-display font-bold text-xl mb-1">{plan.name}</h3>
-            <p class="text-xs text-primary font-medium uppercase tracking-wide">{plan.tagline}</p>
+        <div class={`${plan.popular ? 'saber-card' : 'glass-card glass-card-glow'} p-8 flex flex-col relative transition-transform hover:-translate-y-1`}>
+          <div class={plan.popular ? 'relative z-10' : ''}>
+            {plan.popular && (
+              <span class="absolute -top-10 left-4 px-3 py-1 bg-primary text-primary-foreground text-xs font-bold uppercase rounded-full">
+                Recommended
+              </span>
+            )}
+            {plan.badge && (
+              <span class="absolute -top-10 left-4 px-3 py-1 bg-accent text-accent-foreground text-xs font-bold uppercase rounded-full">
+                {plan.badge}
+              </span>
+            )}
+            
+            <div class="mb-4">
+              <h3 class="font-display font-bold text-xl mb-1">{plan.name}</h3>
+              <p class="text-xs text-primary font-medium uppercase tracking-wide">{plan.tagline}</p>
+            </div>
+            
+            <div class="mb-4">
+              <span class="font-display text-4xl font-bold">{plan.price}</span>
+              <span class="text-muted-foreground ml-1">{plan.period}</span>
+            </div>
+            
+            <p class="text-sm text-muted-foreground mb-6">{plan.description}</p>
+            
+            <ul class="space-y-3 mb-8 flex-1">
+              {plan.features.map((feature) => (
+                <li class="flex items-start gap-3">
+                  <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                  <span class="text-sm">{feature}</span>
+                </li>
+              ))}
+            </ul>
+            
+            <a 
+              href={plan.href} 
+              class={plan.popular ? 'btn-premium text-center text-primary-foreground' : 'btn-glass text-center'}
+            >
+              {plan.cta}
+            </a>
           </div>
-          
-          <div class="mb-4">
-            <span class="font-display text-4xl font-bold">{plan.price}</span>
-            <span class="text-muted-foreground ml-1">{plan.period}</span>
-          </div>
-          
-          <p class="text-sm text-muted-foreground mb-6">{plan.description}</p>
-          
-          <ul class="space-y-3 mb-8 flex-1">
-            {plan.features.map((feature) => (
-              <li class="flex items-start gap-3">
-                <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                <span class="text-sm">{feature}</span>
-              </li>
-            ))}
-          </ul>
-          
-          <a 
-            href={plan.href} 
-            class={plan.popular ? 'brutalist-btn text-center' : 'brutalist-btn-outline text-center'}
-          >
-            {plan.cta}
-          </a>
         </div>
       ))}
     </div>

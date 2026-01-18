@@ -42,3 +42,48 @@ export function MobileNav() {
         </nav>
     );
 }
+
+// MobileMenu component for App Shell
+interface MobileMenuProps {
+    isOpen: boolean;
+    onClose: () => void;
+}
+
+export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+    if (!isOpen) return null;
+
+    return (
+        <div className="fixed inset-0 z-50 lg:hidden">
+            {/* Backdrop */}
+            <div
+                className="absolute inset-0 bg-black/60"
+                onClick={onClose}
+            />
+
+            {/* Menu Content */}
+            <div className="absolute left-0 top-0 bottom-0 w-72 bg-background border-r-3 border-foreground p-6 animate-in slide-in-from-left">
+                <button
+                    onClick={onClose}
+                    className="absolute top-4 right-4 p-2"
+                    aria-label="Close menu"
+                >
+                    ✕
+                </button>
+
+                <nav className="mt-12 space-y-4">
+                    {navItems.map((item) => (
+                        <Link
+                            key={item.href}
+                            href={item.href}
+                            onClick={onClose}
+                            className="flex items-center gap-3 p-3 hover:bg-muted transition-colors"
+                        >
+                            <item.icon className="h-5 w-5" />
+                            <span className="font-medium">{item.label}</span>
+                        </Link>
+                    ))}
+                </nav>
+            </div>
+        </div>
+    );
+}

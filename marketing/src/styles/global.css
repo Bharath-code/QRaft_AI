@@ -4,78 +4,48 @@
 @tailwind utilities;
 
 /* ========================================
-   NEO-BRUTALIST DESIGN SYSTEM
-   Following SKILL.md guidelines
+   VISUALAB DESIGN SYSTEM
+   Premium effects for $3,000 websites
    ======================================== */
 
 @layer base {
     :root {
-        /* Neo-Brutalist Light Mode - Paper & Ink */
-        --background: 40 20% 96%;
-        --foreground: 0 0% 4%;
+        /* Premium Color Palette */
+        --background: 220 20% 4%;
+        --foreground: 0 0% 98%;
 
-        --card: 40 20% 98%;
-        --card-foreground: 0 0% 4%;
+        --card: 220 20% 7%;
+        --card-foreground: 0 0% 98%;
 
-        --popover: 40 20% 98%;
-        --popover-foreground: 0 0% 4%;
+        --popover: 220 20% 7%;
+        --popover-foreground: 0 0% 98%;
 
-        --primary: 14 100% 50%;
-        /* Burnt Orange #ff3e00 */
+        --primary: 14 100% 55%;
+        /* Vibrant Orange */
         --primary-foreground: 0 0% 100%;
 
-        --secondary: 40 10% 90%;
-        --secondary-foreground: 0 0% 4%;
+        --secondary: 220 20% 12%;
+        --secondary-foreground: 0 0% 98%;
 
-        --muted: 40 10% 85%;
-        --muted-foreground: 0 0% 45%;
+        --muted: 220 20% 15%;
+        --muted-foreground: 220 10% 55%;
 
-        --accent: 163 100% 42%;
-        /* Mint #00d4aa */
-        --accent-foreground: 0 0% 4%;
+        --accent: 163 80% 45%;
+        /* Vivid Teal */
+        --accent-foreground: 220 20% 4%;
 
-        --destructive: 0 84% 60%;
-        --destructive-foreground: 0 0% 100%;
+        --destructive: 0 62% 30%;
+        --destructive-foreground: 0 0% 98%;
 
-        --border: 0 0% 4%;
-        --input: 0 0% 4%;
-        --ring: 14 100% 50%;
+        --border: 220 20% 18%;
+        --input: 220 20% 18%;
+        --ring: 14 100% 55%;
 
-        --radius: 4px;
-        /* Sharp, not rounded */
+        --radius: 12px;
     }
 
     .dark {
-        /* Neo-Brutalist Dark Mode */
-        --background: 0 0% 4%;
-        --foreground: 40 20% 96%;
-
-        --card: 0 0% 7%;
-        --card-foreground: 40 20% 96%;
-
-        --popover: 0 0% 7%;
-        --popover-foreground: 40 20% 96%;
-
-        --primary: 14 100% 50%;
-        /* Burnt Orange */
-        --primary-foreground: 0 0% 100%;
-
-        --secondary: 0 0% 12%;
-        --secondary-foreground: 40 20% 96%;
-
-        --muted: 0 0% 15%;
-        --muted-foreground: 0 0% 65%;
-
-        --accent: 163 100% 42%;
-        /* Mint */
-        --accent-foreground: 0 0% 4%;
-
-        --destructive: 0 62% 30%;
-        --destructive-foreground: 40 20% 96%;
-
-        --border: 40 20% 20%;
-        --input: 40 20% 20%;
-        --ring: 14 100% 50%;
+        /* Same as root - dark by default */
     }
 }
 
@@ -94,7 +64,6 @@
         -webkit-font-smoothing: antialiased;
     }
 
-    /* Neo-Brutalist Typography */
     h1,
     h2,
     h3,
@@ -108,97 +77,215 @@
 }
 
 /* ========================================
-   NEO-BRUTALIST UTILITIES
+   ARCHITECTURAL NOISE
+   3-5% opacity noise for tactile feel
    ======================================== */
 
 @layer utilities {
-
-    /* Hard Shadow Cards */
-    .brutalist-card {
-        @apply bg-card border-foreground;
-        border-width: 3px;
-        box-shadow: 4px 4px 0 0 hsl(var(--foreground));
-        transition: transform 150ms ease, box-shadow 150ms ease;
-    }
-
-    .brutalist-card:hover {
-        transform: translate(-2px, -2px);
-        box-shadow: 6px 6px 0 0 hsl(var(--foreground));
-    }
-
-    /* Brutalist Button */
-    .brutalist-btn {
-        @apply font-bold uppercase tracking-wide px-6 py-3 border-foreground bg-primary text-primary-foreground;
-        border-width: 3px;
-        box-shadow: 4px 4px 0 0 hsl(var(--foreground));
-        transition: all 150ms ease;
-    }
-
-    .brutalist-btn:hover {
-        transform: translate(-2px, -2px);
-        box-shadow: 6px 6px 0 0 hsl(var(--foreground));
-    }
-
-    .brutalist-btn:active {
-        transform: translate(2px, 2px);
-        box-shadow: 0 0 0 0 hsl(var(--foreground));
-    }
-
-    /* Outline Button */
-    .brutalist-btn-outline {
-        @apply font-bold uppercase tracking-wide px-6 py-3 border-foreground bg-background text-foreground;
-        border-width: 3px;
-        box-shadow: 4px 4px 0 0 hsl(var(--foreground));
-        transition: all 150ms ease;
-    }
-
-    .brutalist-btn-outline:hover {
-        @apply bg-muted;
-        transform: translate(-2px, -2px);
-        box-shadow: 6px 6px 0 0 hsl(var(--foreground));
-    }
-
-    /* Thick Underline Links */
-    .brutalist-link {
-        @apply relative inline-block;
-    }
-
-    .brutalist-link::after {
-        content: '';
-        @apply absolute bottom-0 left-0 w-full bg-primary;
-        height: 3px;
-        transform: scaleX(0);
-        transform-origin: right;
-        transition: transform 200ms ease;
-    }
-
-    .brutalist-link:hover::after {
-        transform: scaleX(1);
-        transform-origin: left;
-    }
-
-    /* Border thickness */
-    .border-3 {
-        border-width: 3px;
-    }
-
-    /* Hard shadows */
-    .shadow-hard {
-        box-shadow: 4px 4px 0 0 hsl(var(--foreground));
-    }
-
-    .shadow-hard-lg {
-        box-shadow: 8px 8px 0 0 hsl(var(--foreground));
-    }
-
-    /* Noise texture overlay */
     .bg-noise {
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
     }
 
-    /* Entrance Animation */
+    /* Dot Grid Background */
+    .bg-dot-grid {
+        background-image: radial-gradient(circle at 1px 1px,
+                hsl(var(--muted-foreground) / 0.15) 1px,
+                transparent 0);
+        background-size: 24px 24px;
+    }
+
+    /* Combined noise + dot grid */
+    .bg-premium {
+        background-image:
+            radial-gradient(circle at 1px 1px,
+                hsl(var(--muted-foreground) / 0.1) 1px,
+                transparent 0),
+            url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+        background-size: 24px 24px, auto;
+    }
+}
+
+/* ========================================
+   SABER EFFECT
+   Rotating conic gradient borders
+   ======================================== */
+
+@layer utilities {
+    .saber-card {
+        position: relative;
+        background: hsl(var(--card));
+        border-radius: var(--radius);
+        overflow: hidden;
+    }
+
+    .saber-card::before {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        background: conic-gradient(from var(--saber-angle, 0deg) at 50% 50%,
+                hsl(var(--primary)) 0deg,
+                transparent 60deg,
+                transparent 300deg,
+                hsl(var(--primary)) 360deg);
+        border-radius: inherit;
+        animation: saber-rotate 4s linear infinite;
+        z-index: -1;
+    }
+
+    .saber-card::after {
+        content: '';
+        position: absolute;
+        inset: 2px;
+        background: hsl(var(--card));
+        border-radius: calc(var(--radius) - 2px);
+        z-index: 0;
+    }
+
+    .saber-card>* {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+@keyframes saber-rotate {
+    from {
+        --saber-angle: 0deg;
+    }
+
+    to {
+        --saber-angle: 360deg;
+    }
+}
+
+@property --saber-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+/* ========================================
+   GLASSMORPHISM 2.0
+   Linear gradient borders + deep shadows
+   ======================================== */
+
+@layer utilities {
+    .glass-card {
+        position: relative;
+        background: linear-gradient(135deg,
+                hsl(var(--card) / 0.8) 0%,
+                hsl(var(--card) / 0.4) 100%);
+        backdrop-filter: blur(20px);
+        border-radius: var(--radius);
+        border: 1px solid transparent;
+        background-clip: padding-box;
+    }
+
+    .glass-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 1px;
+        background: linear-gradient(135deg,
+                hsl(var(--foreground) / 0.2) 0%,
+                hsl(var(--foreground) / 0.05) 50%,
+                hsl(var(--foreground) / 0.1) 100%);
+        -webkit-mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+    }
+
+    .glass-card-glow {
+        box-shadow:
+            0 0 0 1px hsl(var(--border)),
+            0 4px 6px -1px hsl(0 0% 0% / 0.2),
+            0 10px 40px -10px hsl(var(--primary) / 0.15),
+            0 20px 60px -15px hsl(0 0% 0% / 0.3);
+    }
+
+    /* Deep diffused shadow for lifting */
+    .shadow-premium {
+        box-shadow:
+            0 0 0 1px hsl(var(--border) / 0.5),
+            0 1px 2px hsl(0 0% 0% / 0.15),
+            0 4px 8px hsl(0 0% 0% / 0.1),
+            0 8px 16px hsl(0 0% 0% / 0.1),
+            0 16px 32px hsl(0 0% 0% / 0.15);
+    }
+}
+
+/* ========================================
+   GLOW EFFECTS
+   ======================================== */
+
+@layer utilities {
+    .glow-primary {
+        box-shadow:
+            0 0 20px hsl(var(--primary) / 0.3),
+            0 0 40px hsl(var(--primary) / 0.1);
+    }
+
+    .glow-accent {
+        box-shadow:
+            0 0 20px hsl(var(--accent) / 0.3),
+            0 0 40px hsl(var(--accent) / 0.1);
+    }
+
+    .text-glow {
+        text-shadow:
+            0 0 10px hsl(var(--primary) / 0.5),
+            0 0 20px hsl(var(--primary) / 0.3),
+            0 0 40px hsl(var(--primary) / 0.2);
+    }
+}
+
+/* ========================================
+   PREMIUM BUTTONS
+   ======================================== */
+
+@layer utilities {
+    .btn-premium {
+        @apply font-bold px-6 py-3 rounded-lg transition-all duration-300;
+        background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.8) 100%);
+        box-shadow:
+            0 0 0 1px hsl(var(--primary) / 0.5),
+            0 4px 12px hsl(var(--primary) / 0.3),
+            inset 0 1px 0 hsl(var(--foreground) / 0.1);
+    }
+
+    .btn-premium:hover {
+        transform: translateY(-2px);
+        box-shadow:
+            0 0 0 1px hsl(var(--primary) / 0.5),
+            0 8px 24px hsl(var(--primary) / 0.4),
+            0 0 40px hsl(var(--primary) / 0.2),
+            inset 0 1px 0 hsl(var(--foreground) / 0.1);
+    }
+
+    .btn-glass {
+        @apply font-bold px-6 py-3 rounded-lg transition-all duration-300;
+        background: hsl(var(--foreground) / 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid hsl(var(--foreground) / 0.1);
+    }
+
+    .btn-glass:hover {
+        background: hsl(var(--foreground) / 0.1);
+        border-color: hsl(var(--foreground) / 0.2);
+        transform: translateY(-2px);
+    }
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@layer utilities {
     .reveal-up {
-        animation: revealUp 600ms cubic-bezier(0.19, 1, 0.22, 1) both;
+        animation: revealUp 800ms cubic-bezier(0.16, 1, 0.3, 1) both;
     }
 
     .reveal-up-1 {
@@ -206,30 +293,108 @@
     }
 
     .reveal-up-2 {
-        animation-delay: 80ms;
+        animation-delay: 100ms;
     }
 
     .reveal-up-3 {
-        animation-delay: 160ms;
+        animation-delay: 200ms;
     }
 
     .reveal-up-4 {
-        animation-delay: 240ms;
+        animation-delay: 300ms;
     }
 
     .reveal-up-5 {
-        animation-delay: 320ms;
+        animation-delay: 400ms;
+    }
+
+    .float {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .pulse-glow {
+        animation: pulseGlow 2s ease-in-out infinite;
     }
 }
 
 @keyframes revealUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(40px);
     }
 
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 40px hsl(var(--primary) / 0.5);
+    }
+}
+
+/* ========================================
+   BORDERS & ACCENTS
+   ======================================== */
+
+@layer utilities {
+    .border-gradient {
+        border: 1px solid transparent;
+        background:
+            linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
+            linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent))) border-box;
+    }
+
+    .border-glow {
+        position: relative;
+    }
+
+    .border-glow::before {
+        content: '';
+        position: absolute;
+        inset: -1px;
+        border-radius: inherit;
+        background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: -1;
+    }
+
+    .border-glow:hover::before {
+        opacity: 1;
+    }
+}
+
+/* ========================================
+   UTILITY OVERRIDES
+   ======================================== */
+
+@layer utilities {
+    .font-display {
+        font-family: 'Space Grotesk', system-ui, sans-serif;
+    }
+
+    .border-3 {
+        border-width: 3px;
     }
 }

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { supabaseAdmin } from "@/lib/supabase";
+import { getSupabaseAdmin } from "@/lib/supabase";
 
 export async function GET(req: Request) {
     const { searchParams } = new URL(req.url);
@@ -11,7 +11,7 @@ export async function GET(req: Request) {
 
     try {
         // Fetch all links with their scans
-        const { data: links, error } = await supabaseAdmin
+        const { data: links, error } = await getSupabaseAdmin()
             .from("links")
             .select(`
                 id,
@@ -34,7 +34,7 @@ export async function GET(req: Request) {
 
         let scansData: any[] = [];
         if (linkIds.length > 0) {
-            const { data: scans } = await supabaseAdmin
+            const { data: scans } = await getSupabaseAdmin()
                 .from("scans")
                 .select("*")
                 .in("link_id", linkIds)

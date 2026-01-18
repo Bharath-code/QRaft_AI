@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import Replicate from "replicate";
-import { supabaseAdmin } from "@/lib/supabase";
+import { getSupabaseAdmin } from "@/lib/supabase";
 
 const replicate = new Replicate({
     auth: process.env.REPLICATE_API_TOKEN,
@@ -33,14 +33,14 @@ export async function POST(req: Request) {
         let shouldWatermark = true;
 
         if (userId) {
-            const { data: user, error } = await supabaseAdmin
+            const { data: user, error } = await getSupabaseAdmin()
                 .from('users')
                 .select('*')
                 .eq('id', userId)
                 .single();
 
             if (!user && !error) {
-                await supabaseAdmin.from('users').insert({ id: userId, email: `${userId}@anon.com` });
+                await getSupabaseAdmin().from('users').insert({ id: userId, email: `${userId}@anon.com` });
             }
 
             if (user) {
@@ -51,7 +51,7 @@ export async function POST(req: Request) {
                 // 2. Check Credits - Pay-per-use
                 else if (user.credits > 0) {
                     shouldWatermark = false;
-                    await supabaseAdmin.from('users').update({ credits: user.credits - 1 }).eq('id', userId);
+                    await getSupabaseAdmin().from('users').update({ credits: user.credits - 1 }).eq('id', userId);
                 }
                 // 3. No free tier - must pay
                 else {
@@ -102,7 +102,7 @@ export async function POST(req: Request) {
 
         // SAVE TO HISTORY
         if (userId && imageUrl) {
-            await supabaseAdmin.from('generations').insert({
+            await getSupabaseAdmin().from('generations').insert({
                 user_id: userId,
                 image_url: imageUrl,
                 style_id: style,

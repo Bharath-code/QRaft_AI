@@ -2,19 +2,26 @@
 import WaitlistForm from "./WaitlistForm";
 ---
 
-<section class="py-16 md:py-24 bg-primary text-primary-foreground" id="waitlist">
-  <div class="container mx-auto px-4">
+<section class="py-16 md:py-24 relative overflow-hidden" id="waitlist">
+  {/* Gradient background */}
+  <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20"></div>
+  <div class="absolute inset-0 bg-premium"></div>
+  
+  <div class="container mx-auto px-4 relative z-10">
     <div class="max-w-2xl mx-auto text-center">
       <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">
-        Ready to Stand Out?
+        Ready to{" "}
+        <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Stand Out?</span>
       </h2>
-      <p class="text-lg opacity-90 mb-8">
+      <p class="text-lg text-muted-foreground mb-8">
         Join 500+ students, job seekers, and creators who stopped being boring.
       </p>
       
-      <WaitlistForm client:load />
+      <div class="glass-card glass-card-glow p-8">
+        <WaitlistForm client:load />
+      </div>
 
-      <p class="text-sm opacity-75 mt-6">
+      <p class="text-sm text-muted-foreground mt-6">
         🇮🇳 Indian users: UPI payments supported
       </p>
     </div>
